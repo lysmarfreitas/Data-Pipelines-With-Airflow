@@ -99,7 +99,7 @@ Using __script udac_example_dag.py__, I added default parameters according to th
 - Catchup is turned off
 - Do not email on retry
 
-In addition, I configured the task dependencies so that after the dependencies are set, the graph view follows the flow shown in the image 1 below.
+In addition, I configured the task dependencies so that after the dependencies are set, the graph view follows the flow shown in the __Image 1__ below.
 
 ### 4.3 Build the operators
 To complete the project, I needed to build four different operators, using the following scripts, that will stage the data, transform the data, and run checks on data quality:
@@ -121,11 +121,11 @@ With everything set, in Airflow UI, I needed to turn on and run tha DAG.
 ## 5. Conclusion
 The project successfully performed all tasks using Airflow Pipelines such as staging the data, filling the fact and dimension tables in data warehouse, and running checks on the data as the final step. A completed task has a dark green border, as show on the __Graph View__, or a full green rectangle, as shown on the __Tree View__, both on Airflow UI. See images 1 and 2 below.
 
-__DAG Graph View__
+__Image 1: DAG Graph View__
 
 ![Graph View](/airflow/dags/images/graph_view.png)  
 
 
-__DAG Tree View__  
+__Image 2: DAG Tree View__  
 
 ![Tree View](/airflow/dags/images/tree_view.png)
