@@ -121,7 +121,7 @@ With everything set, in Airflow UI, I needed to turn on and run tha DAG.
 ## 5. Conclusion
 The project successfully performed all tasks using Airflow Pipelines such as staging the data, filling the fact and dimension tables in data warehouse, and running checks on the data as the final step. A completed task has a dark green border, as show on the __Graph View__, or a full green rectangle, as shown on the __Tree View__, both on Airflow UI. See images 1 and 2 below.
 
-![Graph View](/dags/images/graph_view.png)
+![Graph View](/airflow/dags/images/graph_view.png)
 
 
-![Tree View](/dags/images/tree_view.png)
+![Tree View](/airflow/dags/images/tree_view.png)
