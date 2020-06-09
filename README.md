@@ -86,13 +86,13 @@ To use the query editor on the Amazon Redshift console
 
 - Enter one of the create tables statement, like the following, in the query editor window and choose Run to create a new table.
 
-CREATE TABLE public.artists (
-	artistid varchar(256) NOT NULL,
-	name varchar(256),
-	location varchar(256),
-	lattitude numeric(18,0),
-	longitude numeric(18,0)
-)
+CREATE TABLE public.artists (  
+	artistid varchar(256) NOT NULL,  
+	name varchar(256),  
+	location varchar(256),  
+	lattitude numeric(18,0),  
+	longitude numeric(18,0)  
+)  
 
 - Choose Clear.
 
