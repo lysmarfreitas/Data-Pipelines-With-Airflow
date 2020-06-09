@@ -84,16 +84,32 @@ To use the query editor on the Amazon Redshift console
 
 - For Schema, choose public to create a new table based on that schema.
 
-- Enter one of the create tables statement, like the following, in the query editor window and choose Run to create a new table.
-
-CREATE TABLE public.artists (  
-	artistid varchar(256) NOT NULL,  
-	name varchar(256),  
-	location varchar(256),  
-	lattitude numeric(18,0),  
-	longitude numeric(18,0)  
-)  
+- Enter one of the create tables statements in the query editor window and choose Run to create a new table.
 
 - Choose Clear.
 
-- Repeat the last two steps for other tables statements
+- Repeat the last two steps for other tables statements.
+
+### 4.2 Configure the DAG
+Using __script udac_example_dag.py__, I added default parameters according to these guidelines
+
+- The DAG does not have dependencies on past runs
+- On failure, the task are retried 3 times
+- Retries happen every 5 minutes
+- Catchup is turned off
+- Do not email on retry
+
+In addition, I configured the task dependencies so that after the dependencies are set, the graph view follows the flow shown in the image below.
+
+### 4.3 Build the operators
+To complete the project, I needed to build four different operators, using the following scripts, that will stage the data, transform the data, and run checks on data quality:
+
+- __stage_redshift.py -__ Operator to read files from S3 and load into Redshift staging tables  
+
+- __load_fact.py -__ Operator to load the fact table in Redshift  
+
+- __load_dimension.py -__ Operator to read from staging tables and load the dimension tables in Redshift  
+
+- __data_quality.py -__ Operator for data quality checking  
+
+
