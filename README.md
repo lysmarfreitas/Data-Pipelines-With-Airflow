@@ -74,15 +74,15 @@ __time -__ timestamps of records in songplays broken down into specific units
 
 ### 4.1.2 Create tables in Redshift using the query editor
 To execute the DAG workflow, the tables must be created in Redshift before. One way to do that is using the sql statements found in
-create_tables.sql and run them using Redshift query editor.
+__create_tables.sql__ and run them using Redshift query editor.
 
 To use the query editor on the Amazon Redshift console
 
-- Sign in to the AWS Management Console and open the Amazon Redshift console at https://console.aws.amazon.com/redshift/.
+- Sign in to the __AWS Management Console__ and open the Amazon Redshift console.
 
-- On the navigation menu, choose EDITOR, then connect to a database in your cluster.
+- On the navigation menu, choose __EDITOR__, then connect to a database in your cluster.
 
-- For Schema, choose public to create a new table based on that schema.
+- For __Schema__, choose public to create a new table based on that schema.
 
 - Enter one of the create tables statements in the query editor window and choose Run to create a new table.
 
@@ -99,7 +99,7 @@ Using __script udac_example_dag.py__, I added default parameters according to th
 - Catchup is turned off
 - Do not email on retry
 
-In addition, I configured the task dependencies so that after the dependencies are set, the graph view follows the flow shown in the image below.
+In addition, I configured the task dependencies so that after the dependencies are set, the graph view follows the flow shown in the image 1 below.
 
 ### 4.3 Build the operators
 To complete the project, I needed to build four different operators, using the following scripts, that will stage the data, transform the data, and run checks on data quality:
@@ -112,4 +112,16 @@ To complete the project, I needed to build four different operators, using the f
 
 - __data_quality.py -__ Operator for data quality checking  
 
+### 4.4 Create connection settings:
+To perfom the DAG, I needed to use Airflow's UI to configure my AWS credentials and connection to Redshift.
 
+### 4.5 Run the DAG
+With everything set, in Airflow UI, I needed to turn on and run tha DAG.
+
+## 5. Conclusion
+The project successfully performed all tasks using Airflow Pipelines such as staging the data, filling the fact and dimension tables in data warehouse, and running checks on the data as the final step. A completed task has a dark green border, as show on the __Graph View__, or a full green rectangle, as shown on the __Tree View__, both on Airflow UI. See images 1 and 2 below.
+
+![Graph View](/dags/images/graph_view.png)
+
+
+![Tree View](/dags/images/tree_view.png)
